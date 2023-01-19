@@ -4,18 +4,18 @@ import './ProductItem.css';
 import { useState } from 'react';
 
 const ProductItem = ({product, className, onAdd}) => {
-    // const [color, setColor] = useState("blue");
+    const [color, setColor] = useState("blue");
     const [text, setText] = useState("Qoshish");
 
     const onAddHandler = () => {
         if (text === "Qoshish") {
             setText("Qoshildi");
             onAdd(product);
-            // setColor("red");
+            setColor("red");
         } else {
             setText("Qoshish");
             onAdd(product);
-            // setColor("red");
+            setColor("red");
         }
         onAdd(product);
     }
@@ -27,7 +27,7 @@ const ProductItem = ({product, className, onAdd}) => {
             <div className={'price'}>
                 <span>Summasi: <b>{product.price}</b></span>
             </div>
-            <Button className={'add-btn'} onClick={onAddHandler}>
+            <Button style={{color: color}}  className={'add-btn'} onClick={onAddHandler}>
                 {text}
             </Button>
         </div>
